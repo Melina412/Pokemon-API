@@ -10,6 +10,7 @@ import PokemonDetails from "./PokemonDetails";
 // todo : wie viele pokemon wollen wir in der Liste anzeigen?
 // todo : ggf. button für das laden weiterer pokemon?
 // todo : style
+// todo : pokemon müssen noch nach id sortiert werden
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState();
