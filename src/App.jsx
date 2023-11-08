@@ -1,9 +1,15 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import SearchPage from './page/SearchPage';
 
 function App() {
   return (
     <>
-      <h1>HALLO WELT</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/search" element={<SearchPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
