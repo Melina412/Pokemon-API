@@ -9,7 +9,7 @@ const PokemonDetails = (props) => {
       <div className="background">
         <img
           src={props.pokemon.sprites.other.home.front_default}
-          alt={props.pokemon.name + "image"}
+          alt={props.pokemon.name + " image"}
         />
         <div className="info">
           <p>#{props.pokemon.id.toString().padStart(3, "0")}</p>
