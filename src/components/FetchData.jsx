@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { FetchContext } from "../Context/context";
 const FetchData = () => {
   const { setPokemon } = useContext(FetchContext);
-  const url = "https://pokeapi.co/api/v2/pokemon/ditto";
+  const url = "https://pokeapi.co/api/v2/pokemon";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
