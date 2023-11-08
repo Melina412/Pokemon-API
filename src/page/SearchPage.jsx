@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+/* IMAGES */
 import pokemonLogo from '../assets/images/pokemon-logo.png';
 
 /* CSS */
@@ -12,13 +13,9 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
   const [types, setTypes] = useState([]);
 
   const handleSetTypes = (type) => {
-    if (types.indexOf(type) != -1) {
-      setTypes((currentTypes) => currentTypes.filter((cur) => cur !== type));
-    } else {
-      setTypes((currentTypes) => [...currentTypes, type]);
-    }
-
-    console.log(types);
+    types.indexOf(type) != -1
+      ? setTypes((currentTypes) => currentTypes.filter((cur) => cur !== type))
+      : setTypes((currentTypes) => [...currentTypes, type]);
   };
 
   const typeNames = [
@@ -72,6 +69,9 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
       <main
         className={`${styles.main} ${!isDarkMode ? styles.light_body_bg : styles.dark_body_bg}`}
       >
+        <div className={styles.type}>
+          <h2>TYPE</h2>
+        </div>
         <section className={styles.section}>
           <article className={styles.buttons}>
             {typeNames.map((type) => {
@@ -80,6 +80,7 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
                   key={crypto.randomUUID()}
                   type={type}
                   onHandleSetTypes={handleSetTypes}
+                  clickedTypes={types}
                 />
               );
             })}

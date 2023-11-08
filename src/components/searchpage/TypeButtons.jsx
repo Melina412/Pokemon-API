@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 /* CSS */
 import styles from './TypeButtons.module.css';
 
-const TypeButtons = ({ type, onHandleSetTypes }) => {
+const TypeButtons = ({ type, onHandleSetTypes, clickedTypes }) => {
   const typeButtonStyles = {
     bug: '#3BB900',
     dark: '#1C1C1C',
@@ -29,8 +29,19 @@ const TypeButtons = ({ type, onHandleSetTypes }) => {
   return (
     <button
       className={`${styles.button}`}
-      style={{ backgroundColor: typeButtonStyles[type] }}
-      onClick={() => onHandleSetTypes && onHandleSetTypes(type)}
+      style={{
+        backgroundColor: typeButtonStyles[type],
+        outline: clickedTypes && clickedTypes.includes(type) ? '8px solid red' : '',
+        opacity: clickedTypes && clickedTypes.includes(type) ? '0.5' : '',
+      }}
+      onClick={() => {
+        if (onHandleSetTypes) {
+          onHandleSetTypes(type);
+          return;
+        }
+
+        return;
+      }}
     >
       {type.toUpperCase()}
     </button>
@@ -40,6 +51,7 @@ const TypeButtons = ({ type, onHandleSetTypes }) => {
 TypeButtons.propTypes = {
   type: PropTypes.string,
   onHandleSetTypes: PropTypes.func,
+  clickedTypes: PropTypes.array,
 };
 
 export default TypeButtons;
