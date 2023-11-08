@@ -23,6 +23,20 @@
   fill: #6c7274;
 }
 
+.type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.type h2 {
+  font-size: 60px;
+  font-weight: 800;
+  color: #ffcb05;
+  -webkit-text-stroke: 3px #2c72b8;
+}
+
 .section {
   display: flex;
   flex-direction: column;
@@ -32,12 +46,17 @@
 
 .search_button {
   color: #2c72b8;
-  padding: 20px 100px;
+  padding: 11px 85px;
   border-radius: 10px;
   border: 7px solid #2c72b8;
   background-color: #ffcb05;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 800;
+  cursor: pointer;
+}
+
+.search_button:hover {
+  opacity: 0.75;
 }
 
 .light_body_bg {
