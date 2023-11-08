@@ -16,9 +16,20 @@ function App() {
   const [theme, setTheme] = useState(false);
   const [pokemon, setPokemon] = useState();
   return (
-    <>
-      <h1>HALLO WELT</h1>
-    </>
+    <section>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <FetchContext.Provider value={{ pokemon, setPokemon }}>
+          <BrowserRouter>
+            <FetchData />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/details" element={<DetailsPage />} />
+              <Route path="/search" element={<SearchPage />} />
+            </Routes>
+          </BrowserRouter>
+        </FetchContext.Provider>
+      </ThemeContext.Provider>
+    </section>
   );
 }
 
