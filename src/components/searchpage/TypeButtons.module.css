@@ -1,11 +1,12 @@
 .button {
   color: white;
-  padding: 15px 45px;
+  padding: 15px 30px;
   border-radius: 10px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
   cursor: pointer;
-  max-width: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 .button:hover {
