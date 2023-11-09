@@ -16,7 +16,8 @@ const SearchBox = ({ setFilteredPokemon }) => {
   };
 
   useEffect(() => {
-    const filterdResult = pokemonList.results.filter((prev) =>
+
+    const filterdResult = pokemonList?.results.filter((prev) =>
       prev.name.includes(searchText.toLowerCase())
     );
     setFilteredPokemon(filterdResult);
