@@ -2,7 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // Import Page & Componets
 import Home from "./page/Home";
-import DetailsPage from "./page/DetailPage";
+
+import DetailPage from "./page/DetailPage";
 import SearchPage from "./page/SearchPage";
 import FetchData from "./components/FetchData";
 import PokemonList from "./components/PokemonList";
@@ -36,7 +37,7 @@ function App() {
                     />
                   }
                 />
-                <Route path="/details" element={<DetailsPage />} />
+                <Route path="/details" element={<DetailPage />} />
                 <Route
                   path="/search"
                   element={<SearchPage filteredPokemon={setFilteredPokemon} />}
