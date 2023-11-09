@@ -22,7 +22,7 @@ const PokemonDetails = (props) => {
             <p>
               {props.pokemon.name.charAt(0).toUpperCase() +
                 props.pokemon.name.slice(1)}
-            </p>
+            </p> 
           </div>
         </div>
       </article>
@@ -31,5 +31,3 @@ const PokemonDetails = (props) => {
 };
 
 export default PokemonDetails;
-
-// className={`${styles.link}`}
