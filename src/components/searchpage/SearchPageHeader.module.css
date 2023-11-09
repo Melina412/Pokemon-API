@@ -4,8 +4,9 @@
 
 .header div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  gap: 85px;
 }
 
 .header div img {
@@ -15,7 +16,7 @@
 }
 
 .header div svg {
-  width: 150px;
+  width: 50px;
   cursor: pointer;
 }
 
