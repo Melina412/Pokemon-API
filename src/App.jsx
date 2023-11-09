@@ -15,11 +15,19 @@ import PokemonList from "./components/PokemonList";
 
 function App() {
   const [theme, setTheme] = useState(false);
-  const [pokemon, setPokemon] = useState();
+  const [pokemonList, setPokemonList] = useState();
+  const [pokemonDataArray, setPokemonDataArray] = useState([]);
   return (
     <section>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <FetchContext.Provider value={{ pokemon, setPokemon }}>
+        <FetchContext.Provider
+          value={{
+            pokemonList,
+            setPokemonList,
+            pokemonDataArray,
+            setPokemonDataArray,
+          }}
+        >
           <BrowserRouter>
             <FetchData />
             <Routes>
