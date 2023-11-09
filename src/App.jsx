@@ -23,7 +23,7 @@ function App() {
   return (
     <section className="wrap">
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <FetchContext.Provider value={{ pokemon, setPokemon }}>
+        <FetchContext.Provider value={{ pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray }}>
           <BrowserRouter>
             <FetchData />
             {pokemonList ? (
