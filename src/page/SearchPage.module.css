@@ -71,3 +71,20 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
+
+.tooltip_article {
+  position: relative;
+}
+
+.tooltip {
+  width: 120px;
+  background-color: rgb(228, 172, 172);
+  color: #bb0000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
