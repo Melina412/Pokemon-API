@@ -1,0 +1,8 @@
+.section {
+  width: 375px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0 20px;
+  margin: 50px 0;
+}

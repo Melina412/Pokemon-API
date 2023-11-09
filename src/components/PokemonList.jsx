@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { FetchContext } from "../Context/context";
 import PokemonDetails from "./PokemonDetails";
+import styles from "./PokemonList.module.css";
 
 // todo : beim reload wird der fetch erneut ausgeführt und die daten sind dann mehrfach im pokemonDataArray
 // todo : wie viele pokemon wollen wir in der Liste anzeigen?
@@ -11,9 +12,9 @@ import PokemonDetails from "./PokemonDetails";
 const PokemonList = () => {
   const { pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray } =
     useContext(FetchContext);
+  console.log({ pokemonDataArray });
   return (
-    <section>
-      <h2>Pokemon List</h2>
+    <section className={`${styles.section}`}>
       {pokemonDataArray?.map((item, index) => (
         <PokemonDetails key={index} pokemon={item} />
       ))}

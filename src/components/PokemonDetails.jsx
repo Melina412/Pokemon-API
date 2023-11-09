@@ -6,16 +6,23 @@ const PokemonDetails = (props) => {
   //   console.log({ props });
   //   const pokemon = [...PokemonList];
   return (
-    <Link to={`/details/${props.pokemon.id}`}>
-      <article className="card">
-        <div className="background">
-          <img
-            src={props.pokemon.sprites.other.home.front_default}
-            alt={props.pokemon.name + " image"}
-          />
-          <div className="info">
+    <Link to={`/details/${props.pokemon.id}`} className={`${styles.link}`}>
+      <article>
+        <div className={`${styles.background}`}>
+          <div className={`${styles.container}`}>
+            <img
+              className={`${styles.image}`}
+              src={props.pokemon.sprites.other.home.front_default}
+              alt={props.pokemon.name + " image"}
+            />
+          </div>
+
+          <div className={`${styles.info}`}>
             <p>#{props.pokemon.id.toString().padStart(3, "0")}</p>
-            <p>{props.pokemon.name}</p>
+            <p>
+              {props.pokemon.name.charAt(0).toUpperCase() +
+                props.pokemon.name.slice(1)}
+            </p> 
           </div>
         </div>
       </article>

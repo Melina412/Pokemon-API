@@ -37,7 +37,6 @@ function App() {
     }
   };
 
-
   return (
     <section className="wrap">
       <ThemeContext.Provider value={{ theme, setTheme }}>
