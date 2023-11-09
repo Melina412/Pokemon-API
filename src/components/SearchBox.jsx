@@ -12,7 +12,10 @@ const SearchBox = ({ setFilteredPokemon }) => {
   const [searchText, setSearchText] = useState("");
   const { pokemonList } = useContext(FetchContext);
 
+  const { pokemonDataArray } = useContext(FetchContext);
+
   const { setTheme } = useContext(ThemeContext);
+  console.log("pokemonDataArray", pokemonDataArray);
 
   const toggleTheme = () => {
     setTheme((theme) => !theme);
@@ -20,12 +23,12 @@ const SearchBox = ({ setFilteredPokemon }) => {
 
 
   useEffect(() => {
+    const filteredResult = pokemonDataArray?.filter((item) =>
+      item.name.includes(searchText.toLowerCase())
 
-    const filterdResult = pokemonList?.results.filter((prev) =>
-      prev.name.includes(searchText.toLowerCase())
     );
-    setFilteredPokemon(filterdResult);
-    console.log(filterdResult);
+    setFilteredPokemon(filteredResult);
+    console.log("Filter Result ===>>>>", filteredResult);
   }, [searchText]);
 
 

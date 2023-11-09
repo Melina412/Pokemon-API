@@ -21,9 +21,10 @@ function App() {
   const [filteredPokemon, setFilteredPokemon] = useState([]);
 
   const handleSearchByType = (types, checked) => {
-    if (checked) {
-      setFilteredPokemon(pokemonDataArray);
+      
       if (types && types.length > 0) {
+           if (checked) {
+             setFilteredPokemon(pokemonDataArray);
         types.forEach((typeName) => {
           setFilteredPokemon((prev) => [
             ...prev.filter((element) =>
@@ -31,14 +32,20 @@ function App() {
             ),
           ]);
         });
+               return;
       }
-
-      return;
+         const filteredResults = pokemonDataArray.filter(
+        (element) =>
+          element.types.filter(
+            (e) => types.filter((type) => e.type.name.includes(type)).length > 0
+          ).length > 0
+      );
+      setFilteredPokemon(filteredResults);
     }
   };
 
   return (
-    <section className="wrap">
+    <section className={`wrap ${theme ? "dark" : "light"}`}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <FetchContext.Provider
           value={{
@@ -65,10 +72,7 @@ function App() {
                 <Route
                   path="/search"
                   element={
-                    <SearchPage
-                      filteredPokemon={setFilteredPokemon}
-                      onHandleSearchByType={handleSearchByType}
-                    />
+                    <SearchPage onHandleSearchByType={handleSearchByType} />
                   }
                 />
               </Routes>

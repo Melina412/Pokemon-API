@@ -51,3 +51,9 @@
   justify-content: center;
   margin: 0 auto;
 }
+.dark {
+  background-color: var(--bgDarkmode);
+}
+.light {
+  background-color: var(--flyng);
+}
