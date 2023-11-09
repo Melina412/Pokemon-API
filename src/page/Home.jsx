@@ -12,7 +12,9 @@ import SearchBox from '../components/SearchBox';
 const Home = ({ setFilteredPokemon, filteredPokemon }) => {
   const { pokemonList } = useContext(FetchContext);
   const { theme } = useContext(ThemeContext);
-  // console.log("Fetch Data", pokemon);
+
+  console.log("Fetch Data", pokemonList);
+
   return (
     <section className={`${style.container} ${theme ? style.dark : null}`}>
       <header>

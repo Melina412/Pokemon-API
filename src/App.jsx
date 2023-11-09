@@ -37,11 +37,17 @@ function App() {
     }
   };
 
+
   return (
     <section className="wrap">
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <FetchContext.Provider
-          value={{ pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray }}
+          value={{
+            pokemonList,
+            setPokemonList,
+            pokemonDataArray,
+            setPokemonDataArray,
+          }}
         >
           <BrowserRouter>
             <FetchData />
@@ -56,7 +62,7 @@ function App() {
                     />
                   }
                 />
-                <Route path="/details" element={<DetailPage />} />
+                <Route path="/details/:id" element={<DetailPage />} />
                 <Route
                   path="/search"
                   element={

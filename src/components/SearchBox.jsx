@@ -6,22 +6,28 @@ import menu from '../assets/images/menu.png';
 import mode from '../assets/images/mode.png';
 import style from './SearchBox.module.css';
 import { Link } from 'react-router-dom';
+
 const SearchBox = ({ setFilteredPokemon }) => {
-  const [searchText, setSearchText] = useState('');
-  const { pokemon } = useContext(FetchContext);
+
+  const [searchText, setSearchText] = useState("");
+  const { pokemonList } = useContext(FetchContext);
+
   const { setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
     setTheme((theme) => !theme);
   };
 
-  // useEffect(() => {
-  //   const filterdResult = pokemon.results.filter((prev) =>
-  //     prev.name.includes(searchText.toLowerCase())
-  //   );
-  //   setFilteredPokemon(filterdResult);
-  //   console.log(filterdResult);
-  // }, [searchText]);
+
+  useEffect(() => {
+
+    const filterdResult = pokemonList?.results.filter((prev) =>
+      prev.name.includes(searchText.toLowerCase())
+    );
+    setFilteredPokemon(filterdResult);
+    console.log(filterdResult);
+  }, [searchText]);
+
 
   return (
     <section className={style.searchBox}>
