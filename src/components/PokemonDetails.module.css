@@ -1,11 +1,12 @@
 .link {
-  width: 100%;
-  height: 162px;
+  display: block;
+  height: 120px;
   text-decoration: none;
+  padding-top: 40px;
 }
 
-.link article {
-  height: 120px;
+.article {
+  height: 162px;
 }
 
 .background {

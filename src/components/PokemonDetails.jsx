@@ -9,8 +9,8 @@ const PokemonDetails = (props) => {
   //   console.log({ props });
   //   const pokemon = [...PokemonList];
   return (
-    <Link to={`/details/${props.pokemon.id}`} className={`${styles.link}`}>
-      <article>
+    <article className={`${styles.article}`}>
+      <Link to={`/details/${props.pokemon.id}`} className={`${styles.link}`}>
         <div
           className={`${styles.background} ${
             theme ? styles.dark : styles.light
@@ -32,8 +32,8 @@ const PokemonDetails = (props) => {
             </p>
           </div>
         </div>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 };
 
