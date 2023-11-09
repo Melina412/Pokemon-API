@@ -50,7 +50,6 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  padding-top: 50px;
 }
 .dark {
   background-color: var(--bgDarkmode);

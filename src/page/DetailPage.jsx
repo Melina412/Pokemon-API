@@ -1,32 +1,53 @@
 // Styling
-import style from "./Detailpage.modules.css";
+import style from "./Detailpage.module.css";
 
-import SearchBox from "../components/SearchBox";
+import FetchData from "../components/FetchData";
 import { useContext } from "react";
 import { FetchContext } from "../Context/context";
+import { useParams, Link } from "react-router-dom";
+import TypeButtons from "../components/searchpage/TypeButtons";
 
-export default function DetailPage() {
-  const { pokemon, setPokemon } = useContext(FetchContext);
-  console.log(pokemon);
+export default function DetailPage(props) {
+  const { pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray } =
+    useContext(FetchContext);
+  console.log(props.pokemon);
+  console.log(pokemonDataArray);
+
+  //- useParams
+  const idParams = useParams();
+
+  const detailPokemon = pokemonDataArray.filter((elm) => {
+    return elm.id.toString() === idParams.id;
+  });
+
+  console.log(detailPokemon);
+
+  //------------
 
   return (
-    <section className="detail-page">
-      <img src="../../pokemon-img.png" alt="Logo" />
-      {/* <SearchBox /> */}
-      <div className="card-bg">
+    <section className={`${style.page}`}>
+      <img className={`${style.logo}`} src="../../pokemon-img.png" alt="Logo" />
+      <Link to={`/`}>← show all</Link>
+      <div className={`${style.card}`}>
         <img
-          className="pokemon-img"
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+          className={`${style.pokemon}`}
+          src={detailPokemon[0].sprites.other.home.front_default}
           alt="Pokemon"
-          //   {item.sprites.other.official-artwork.front_default}
         />
       </div>
-      <h1>#007 Shiggy</h1>
-      {/* //* {item.name} */}
-      {/* <TypeButtons /> */}
-      <button>WATER</button>
-      <p>Attake xyz</p>
-      <p>Description lalelu</p>
+      <h1>
+        #{detailPokemon[0].id.toString().padStart(3, "0")}{" "}
+        {detailPokemon[0].name}
+      </h1>
+
+      {detailPokemon[0].types.map((type) => {
+        return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;
+      })}
+
+      <h3>Attacken:</h3>
+      <p>{detailPokemon[0].moves[0].move.name}</p>
+      <p>{detailPokemon[0].moves[1].move.name}</p>
+      <p>{detailPokemon[0].moves[3].move.name}</p>
     </section>
   );
 }

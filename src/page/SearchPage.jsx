@@ -12,8 +12,13 @@ const errorTimeLength = 6000;
 const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
   const [types, setTypes] = useState([]);
   const [errorHandler, setErrorHandler] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleSetErrorHandler = () => {
+    if (errorHandler) {
+      return;
+    }
+
     setErrorHandler(true);
     setTimeout(() => {
       setErrorHandler(false);
@@ -49,11 +54,13 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
   ];
 
   return (
-    <>
-      <SearchPageHeader isDarkMode={isDarkMode} />
-      <main
-        className={`${styles.main} ${!isDarkMode ? styles.light_body_bg : styles.dark_body_bg}`}
-      >
+    <div
+      className={`${styles.body_section} ${
+        !isDarkMode ? styles.light_body_bg : styles.dark_body_bg
+      }`}
+    >
+      <SearchPageHeader />
+      <main className={styles.main}>
         <div className={styles.type}>
           <h2>TYPE</h2>
         </div>
@@ -75,17 +82,21 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
             <Link to={`${types.length > 0 ? '/' : '#'}`}>
               <button
                 onClick={() =>
-                  types.length > 0 ? onHandleSearchByType(types) : handleSetErrorHandler()
+                  types.length > 0 ? onHandleSearchByType(types, checked) : handleSetErrorHandler()
                 }
                 className={styles.search_button}
               >
                 SEARCH
               </button>
             </Link>
+            <input type="checkbox" id="check" className={styles.checkbox} />
+            <label htmlFor="check" onClick={() => setChecked(!checked)}>
+              find only Pokemons with all Types
+            </label>
           </article>
         </section>
       </main>
-    </>
+    </div>
   );
 };
 

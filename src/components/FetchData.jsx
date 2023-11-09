@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { FetchContext } from "../Context/context";
+import { useContext, useEffect, useState } from 'react';
+import { FetchContext } from '../Context/context';
 const FetchData = () => {
-
   const { pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray } =
     useContext(FetchContext);
-  const fetchList = "https://pokeapi.co/api/v2/pokemon/";
+  const fetchList = 'https://pokeapi.co/api/v2/pokemon/';
 
   useEffect(() => {
     // * zuerst die ganze liste mit den pokemon fetchen
@@ -16,7 +15,6 @@ const FetchData = () => {
           return fetch(pokemon.url)
             .then((response) => response.json())
             .then((pokemonData) => {
-              console.log({ pokemonData });
               setPokemonDataArray((prev) => [...prev, pokemonData]);
             });
         });
@@ -24,15 +22,10 @@ const FetchData = () => {
         // * warten bis alle daten da sind und dann anzeigen
         Promise.all(fetchedData).then(() => {
           setPokemonList(data);
-          console.log({ data });
-          console.log({ pokemonDataArray });
         });
       })
 
-      .catch((error) =>
-        console.error("Fehler beim Abrufen der Pokemon-Liste:" + error)
-      );
+      .catch((error) => console.error('Fehler beim Abrufen der Pokemon-Liste:' + error));
   }, []);
-  console.log({ pokemonList });
 };
 export default FetchData;
