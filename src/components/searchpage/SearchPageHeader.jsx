@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 /* CSS */
@@ -6,11 +6,9 @@ import styles from './SearchPageHeader.module.css';
 /* IMAGES */
 import pokemonLogo from '../../assets/images/pokemon-logo.png';
 
-const SearchPageHeader = ({ isDarkMode }) => {
+const SearchPageHeader = () => {
   return (
-    <header
-      className={`${styles.header} ${!isDarkMode ? styles.light_body_bg : styles.dark_body_bg}`}
-    >
+    <header className={styles.header}>
       <div>
         <img src={pokemonLogo} alt="PokemonLogo" />
         <Link to="/">
@@ -35,8 +33,8 @@ const SearchPageHeader = ({ isDarkMode }) => {
   );
 };
 
-SearchPageHeader.propTypes = {
-  isDarkMode: PropTypes.bool,
-};
+// SearchPageHeader.propTypes = {
+//   isDarkMode: PropTypes.bool,
+// };
 
 export default SearchPageHeader;

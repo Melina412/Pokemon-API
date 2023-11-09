@@ -49,11 +49,13 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
   ];
 
   return (
-    <>
+    <div
+      className={`${styles.body_section} ${
+        !isDarkMode ? styles.light_body_bg : styles.dark_body_bg
+      }`}
+    >
       <SearchPageHeader isDarkMode={isDarkMode} />
-      <main
-        className={`${styles.main} ${!isDarkMode ? styles.light_body_bg : styles.dark_body_bg}`}
-      >
+      <main className={styles.main}>
         <div className={styles.type}>
           <h2>TYPE</h2>
         </div>
@@ -85,7 +87,7 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
           </article>
         </section>
       </main>
-    </>
+    </div>
   );
 };
 
