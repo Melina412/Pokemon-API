@@ -1,14 +1,21 @@
 import PokemonList from "./PokemonList";
 import styles from "./PokemonDetails.module.css";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../Context/context";
+import { useContext } from "react";
 
 const PokemonDetails = (props) => {
+  const { theme } = useContext(ThemeContext);
   //   console.log({ props });
   //   const pokemon = [...PokemonList];
   return (
     <Link to={`/details/${props.pokemon.id}`} className={`${styles.link}`}>
       <article>
-        <div className={`${styles.background}`}>
+        <div
+          className={`${styles.background} ${
+            theme ? styles.dark : styles.light
+          }`}
+        >
           <div className={`${styles.container}`}>
             <img
               className={`${styles.image}`}
@@ -22,7 +29,7 @@ const PokemonDetails = (props) => {
             <p>
               {props.pokemon.name.charAt(0).toUpperCase() +
                 props.pokemon.name.slice(1)}
-            </p> 
+            </p>
           </div>
         </div>
       </article>
