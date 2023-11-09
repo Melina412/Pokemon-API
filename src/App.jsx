@@ -15,15 +15,17 @@ import { FetchContext } from "./Context/context";
 
 function App() {
   const [theme, setTheme] = useState(false);
-  const [pokemon, setPokemon] = useState();
+  const [pokemonList, setPokemonList] = useState();
+  const [pokemonDataArray, setPokemonDataArray] = useState([]);
   const [filteredPokemon, setFilteredPokemon] = useState([]);
+  
   return (
     <section className="wrap">
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <FetchContext.Provider value={{ pokemon, setPokemon }}>
           <BrowserRouter>
             <FetchData />
-            {pokemon ? (
+            {pokemonList ? (
               <Routes>
                 <Route
                   path="/"
@@ -39,6 +41,7 @@ function App() {
                   path="/search"
                   element={<SearchPage filteredPokemon={setFilteredPokemon} />}
                 />
+
               </Routes>
             ) : (
               <p>Loding...</p>

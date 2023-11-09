@@ -1,29 +1,23 @@
-import SearchBox from "../components/SearchBox";
+import PokemonList from "./PokemonList";
+import styles from "./PokemonDetails.module.css";
 
-export default function DetailPage() {
-  const { pokemon, setPokemon } = useContext(FetchContext);
-  console.log(pokemon);
-
+const PokemonDetails = (props) => {
+  //   console.log({ props });
+  //   const pokemon = [...PokemonList];
   return (
-    <section>
-      <img src="../../pokemon-img.png" alt="Logo" />
-      <SearchBox />
-      <article>
-        {pokemon?.map((item, index) => (
-          <div key={index}>
-            <img
-              // oder item.sprites.other.home.front_default
-              src={item.sprites.other.official - artwork.front_default}
-              alt="Pokemon"
-            />
-            <h1>
-              {item.pokedex_numbers}
-              {item.names[5].name}
-            </h1>
-            <p>{item.habitat}</p>
-          </div>
-        ))}
-      </article>
-    </section>
+    <article className="card">
+      <div className="background">
+        <img
+          src={props.pokemon.sprites.other.home.front_default}
+          alt={props.pokemon.name + " image"}
+        />
+        <div className="info">
+          <p>#{props.pokemon.id.toString().padStart(3, "0")}</p>
+          <p>{props.pokemon.name}</p>
+        </div>
+      </div>
+    </article>
   );
-}
+};
+
+export default PokemonDetails;
