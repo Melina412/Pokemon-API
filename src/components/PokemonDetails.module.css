@@ -1,0 +1,50 @@
+.link {
+  width: 100%;
+  height: 162px;
+  text-decoration: none;
+}
+
+.link article {
+  height: 120px;
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--Cards-Light-Mode);
+  border-radius: 20px;
+  height: 120px;
+}
+
+.container {
+  position: relative;
+  height: 92px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  height: 160px;
+  width: auto;
+  margin: 0;
+  position: absolute;
+  top: -80%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.info p {
+  color: var(--bgDarkmode);
+  font-family: RobotoR;
+  font-size: 14px;
+  margin: 5px 10px;
+}

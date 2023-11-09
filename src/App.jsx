@@ -19,11 +19,18 @@ function App() {
   const [pokemonList, setPokemonList] = useState();
   const [pokemonDataArray, setPokemonDataArray] = useState([]);
   const [filteredPokemon, setFilteredPokemon] = useState([]);
-  
+
   return (
     <section className="wrap">
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <FetchContext.Provider value={{ pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray }}>
+        <FetchContext.Provider
+          value={{
+            pokemonList,
+            setPokemonList,
+            pokemonDataArray,
+            setPokemonDataArray,
+          }}
+        >
           <BrowserRouter>
             <FetchData />
             {pokemonList ? (
@@ -37,12 +44,11 @@ function App() {
                     />
                   }
                 />
-                <Route path="/details" element={<DetailPage />} />
+                <Route path="/details/:id" element={<DetailPage />} />
                 <Route
                   path="/search"
                   element={<SearchPage filteredPokemon={setFilteredPokemon} />}
                 />
-
               </Routes>
             ) : (
               <p>Loding...</p>

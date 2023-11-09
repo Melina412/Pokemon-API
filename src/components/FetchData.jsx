@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { FetchContext } from "../Context/context";
 const FetchData = () => {
-
   const { pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray } =
     useContext(FetchContext);
   const fetchList = "https://pokeapi.co/api/v2/pokemon/";
@@ -24,8 +23,8 @@ const FetchData = () => {
         // * warten bis alle daten da sind und dann anzeigen
         Promise.all(fetchedData).then(() => {
           setPokemonList(data);
-          console.log({ data });
-          console.log({ pokemonDataArray });
+          // console.log({ data });
+          // console.log({ pokemonDataArray });
         });
       })
 
@@ -34,5 +33,6 @@ const FetchData = () => {
       );
   }, []);
   console.log({ pokemonList });
+  console.log({ pokemonDataArray });
 };
 export default FetchData;
