@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { FetchContext } from "../Context/context";
 const FetchData = () => {
+
   const { pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray } =
     useContext(FetchContext);
   const fetchList = "https://pokeapi.co/api/v2/pokemon/";
@@ -34,5 +35,4 @@ const FetchData = () => {
   }, []);
   console.log({ pokemonList });
 };
-
 export default FetchData;

@@ -42,3 +42,13 @@
   font-family: RobotoB;
   src: url("./assets/fonts/Roboto-Black.ttf");
 }
+
+.logo {
+  width: 225px;
+}
+.wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 50px;
+}
