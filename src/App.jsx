@@ -5,6 +5,7 @@ import Home from "./page/Home";
 import DetailsPage from "./page/DetailPage";
 import SearchPage from "./page/SearchPage";
 import FetchData from "./components/FetchData";
+import PokemonList from "./components/PokemonList";
 
 import { useState } from "react";
 import "./App.css";
@@ -15,17 +16,33 @@ import { FetchContext } from "./Context/context";
 function App() {
   const [theme, setTheme] = useState(false);
   const [pokemon, setPokemon] = useState();
+  const [filteredPokemon, setFilteredPokemon] = useState([]);
   return (
-    <section>
+    <section className="wrap">
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <FetchContext.Provider value={{ pokemon, setPokemon }}>
           <BrowserRouter>
             <FetchData />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/details" element={<DetailsPage />} />
-              <Route path="/search" element={<SearchPage />} />
-            </Routes>
+            {pokemon ? (
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Home
+                      setFilteredPokemon={setFilteredPokemon}
+                      filteredPokemon={filteredPokemon}
+                    />
+                  }
+                />
+                <Route path="/details" element={<DetailsPage />} />
+                <Route
+                  path="/search"
+                  element={<SearchPage filteredPokemon={setFilteredPokemon} />}
+                />
+              </Routes>
+            ) : (
+              <p>Loding...</p>
+            )}
           </BrowserRouter>
         </FetchContext.Provider>
       </ThemeContext.Provider>
