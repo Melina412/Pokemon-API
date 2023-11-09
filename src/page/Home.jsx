@@ -10,7 +10,7 @@ import pokemonLogo from "../assets/images/pokemon-logo.png";
 import SearchBox from "../components/SearchBox";
 
 const Home = ({ setFilteredPokemon, filteredPokemon }) => {
-  const { pokemon } = useContext(FetchContext);
+  const { pokemonList } = useContext(FetchContext);
   const { theme } = useContext(ThemeContext);
   console.log("Fetch Data", pokemon);
   return (
@@ -20,7 +20,7 @@ const Home = ({ setFilteredPokemon, filteredPokemon }) => {
         <SearchBox setFilteredPokemon={setFilteredPokemon} />
       </header>
       <main>
-        <PokemonList pokemon={filteredPokemon} />
+        <PokemonList filteredPokemonList={filteredPokemon} />
       </main>
     </section>
   );
