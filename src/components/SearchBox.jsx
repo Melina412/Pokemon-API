@@ -8,7 +8,7 @@ import style from "./SearchBox.module.css";
 import { Link } from "react-router-dom";
 const SearchBox = ({ setFilteredPokemon }) => {
   const [searchText, setSearchText] = useState("");
-  const { pokemon } = useContext(FetchContext);
+  const { pokemonList } = useContext(FetchContext);
   const { setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
@@ -16,7 +16,7 @@ const SearchBox = ({ setFilteredPokemon }) => {
   };
 
   useEffect(() => {
-    const filterdResult = pokemon.results.filter((prev) =>
+    const filterdResult = pokemonList.results.filter((prev) =>
       prev.name.includes(searchText.toLowerCase())
     );
     setFilteredPokemon(filterdResult);
