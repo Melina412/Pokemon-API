@@ -1,20 +1,16 @@
 .container {
   width: 100%;
-  max-width: 375px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: var(--flyng);
+
   border-radius: 15px;
 }
-img {
+.img {
   margin: 20px auto;
 }
-header {
+.header {
   display: flex;
   flex-direction: column;
-}
-.dark {
-  background-color: var(--bgDarkmode);
 }

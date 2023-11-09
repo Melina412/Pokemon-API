@@ -19,11 +19,33 @@ function App() {
   const [pokemonList, setPokemonList] = useState();
   const [pokemonDataArray, setPokemonDataArray] = useState([]);
   const [filteredPokemon, setFilteredPokemon] = useState([]);
-  
+
+  // Die Funktion handhabt die Suche nach Pokemon-Typen basierend auf den ausgewählten Typen.
+  const handleSearchByType = (types) => {
+    console.log("Type ist ===>> ", types);
+    if (types && types.length > 0) {
+      const filteredResults = pokemonDataArray.filter(
+        (element) =>
+          element.types.filter(
+            (e) => types.filter((type) => e.type.name.includes(type)).length > 0
+          ).length > 0
+      );
+      setFilteredPokemon(filteredResults);
+      console.log("Filter =>>>>>>>>>", filteredResults);
+    }
+  };
+
   return (
-    <section className="wrap">
+    <section className={`wrap ${theme ? "dark" : "light"}`}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <FetchContext.Provider value={{ pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray }}>
+        <FetchContext.Provider
+          value={{
+            pokemonList,
+            setPokemonList,
+            pokemonDataArray,
+            setPokemonDataArray,
+          }}
+        >
           <BrowserRouter>
             <FetchData />
             {pokemonList ? (
@@ -40,9 +62,10 @@ function App() {
                 <Route path="/details" element={<DetailPage />} />
                 <Route
                   path="/search"
-                  element={<SearchPage filteredPokemon={setFilteredPokemon} />}
+                  element={
+                    <SearchPage onHandleSearchByType={handleSearchByType} />
+                  }
                 />
-
               </Routes>
             ) : (
               <p>Loding...</p>

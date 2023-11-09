@@ -52,3 +52,9 @@
   margin: 0 auto;
   padding-top: 50px;
 }
+.dark {
+  background-color: var(--bgDarkmode);
+}
+.light {
+  background-color: var(--flyng);
+}
