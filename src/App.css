@@ -30,6 +30,8 @@
   --bgLightMode: #ff0000;
   --bgDarkmode: #000000;
   --cardsDarkMode: #bfdfff;
+  --Cards-Light-Mode: linear-gradient(52deg, #ffe1c6 4.87%, #ffcb05 94.37%);
+  --Cards-Dark-Mode: linear-gradient(52deg, #bfdfff 4.87%, #001224 94.37%);
 }
 
 @font-face {
@@ -39,4 +41,14 @@
 @font-face {
   font-family: RobotoB;
   src: url("./assets/fonts/Roboto-Black.ttf");
+}
+
+.logo {
+  width: 225px;
+}
+.wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 50px;
 }
