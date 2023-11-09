@@ -1,7 +1,7 @@
 // Styling
 import style from "./Detailpage.modules.css";
 
-// import SearchBox from "../components/SearchBox";
+import SearchBox from "../components/SearchBox";
 import { useContext } from "react";
 import { FetchContext } from "../Context/context";
 

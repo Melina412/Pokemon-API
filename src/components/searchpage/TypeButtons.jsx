@@ -37,7 +37,6 @@ const TypeButtons = ({ type, onHandleSetTypes, clickedTypes }) => {
       onClick={() => {
         if (onHandleSetTypes) {
           onHandleSetTypes(type);
-          return;
         }
 
         return;

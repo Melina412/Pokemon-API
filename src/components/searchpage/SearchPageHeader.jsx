@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 /* CSS */
 import styles from './SearchPageHeader.module.css';
 /* IMAGES */
-/* IMAGES */
 import pokemonLogo from '../../assets/images/pokemon-logo.png';
 
 const SearchPageHeader = ({ isDarkMode }) => {
