@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { FetchContext } from "../Context/context";
+import { FetchContext, ThemeContext } from "../Context/context";
 import PokemonDetails from "./PokemonDetails";
 import styles from "./PokemonList.module.css";
 
