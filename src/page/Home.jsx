@@ -1,13 +1,13 @@
-import { useContext } from 'react';
-import { FetchContext } from '../Context/context';
-import { ThemeContext } from '../Context/context';
-import style from './Home.module.css';
+import { useContext } from "react";
+import { FetchContext } from "../Context/context";
+import { ThemeContext } from "../Context/context";
+import style from "./Home.module.css";
 
-import PokemonList from '../components/PokemonList';
+import PokemonList from "../components/PokemonList";
 
 /* IMAGES */
-import pokemonLogo from '../assets/images/pokemon-logo.png';
-import SearchBox from '../components/SearchBox';
+import pokemonLogo from "../assets/images/pokemon-logo.png";
+import SearchBox from "../components/SearchBox";
 
 const Home = ({ setFilteredPokemon, filteredPokemon }) => {
   const { pokemonList } = useContext(FetchContext);
