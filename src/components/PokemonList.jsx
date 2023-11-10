@@ -92,7 +92,7 @@ const PokemonList = ({ filteredPokemonList, setFilteredPokemon }) => {
               position: 'fixed',
               bottom: '5%',
               right: '35%',
-              background: 'rgba(0,0,0, 0.75)',
+              background: 'rgba(50,50,50, 0.75)',
               color: 'white',
               padding: '5px',
               textDecoration: 'none',
