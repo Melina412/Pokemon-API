@@ -1,14 +1,15 @@
 // Styling
 import './Detailpage.css';
 
-import { useContext } from 'react';
-import { FetchContext, ThemeContext } from '../Context/context';
-import { useParams, Link } from 'react-router-dom';
-import TypeButtons from '../components/searchpage/TypeButtons';
+import { useContext} from "react";
+import { FetchContext, ThemeContext } from "../Context/context";
+import { useParams, Link } from "react-router-dom";
+import TypeButtons from "../components/searchpage/TypeButtons";
 
 export default function DetailPage() {
   const { pokemonDataArray } = useContext(FetchContext);
   const { theme } = useContext(ThemeContext);
+
   //- useParams
   const idParams = useParams();
 
@@ -25,7 +26,11 @@ export default function DetailPage() {
       <div className={`${theme ? 'darkcard' : 'card'}`}>
         <img
           className="super-pokemon"
-          src={detailPokemon[0].sprites.other.home.front_default}
+          src={
+            detailPokemon[0].sprites.other.home.front_default
+              ? detailPokemon[0].sprites.other.home.front_default
+              : detailPokemon[0].sprites.other["official-artwork"].front_default
+          }
           alt="Pokemon"
         />
       </div>
@@ -36,6 +41,9 @@ export default function DetailPage() {
         return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;
       })}
       <h3>Attacken:</h3>
+      {detailPokemon[0].moves.slice(0, 5).map((attack) => {
+        return <p key={crypto.randomUUID()}>{attack.move.name}</p>;
+      })}
     </section>
   );
 }

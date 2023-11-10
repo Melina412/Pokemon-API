@@ -7,6 +7,7 @@ import DetailPage from './page/DetailPage';
 import SearchPage from './page/SearchPage';
 import FetchData from './components/FetchData';
 
+
 import { useState } from 'react';
 import './App.css';
 // Import Context
@@ -24,7 +25,8 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const handleSearchByType = (types, checked) => {
-    setInputVal('');
+
+    setInputVal("");
     if (types && types.length > 0) {
       if (checked) {
         let filteredResults = [...pokemonDataArray];

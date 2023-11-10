@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 /* CSS */
-import styles from './SearchPage.module.css';
-import { Link } from 'react-router-dom';
-import TypeButtons from '../components/searchpage/TypeButtons';
-import { useState } from 'react';
-import SearchPageHeader from '../components/searchpage/SearchPageHeader';
+import styles from "./SearchPage.module.css";
+import { Link } from "react-router-dom";
+import TypeButtons from "../components/searchpage/TypeButtons";
+import { useState } from "react";
+import SearchPageHeader from "../components/searchpage/SearchPageHeader";
 
 const errorTimeLength = 5000;
 
@@ -32,25 +32,25 @@ const SearchPage = ({ onHandleSearchByType }) => {
   };
 
   const typeNames = [
-    'bug',
-    'dark',
-    'dragon',
-    'electric',
-    'fairy',
-    'fighting',
-    'fire',
-    'flying',
-    'ghost',
-    'grass',
-    'ground',
-    'ice',
-    'normal',
-    'plant',
-    'poison',
-    'psychic',
-    'rock',
-    'steel',
-    'water',
+    "bug",
+    "dark",
+    "dragon",
+    "electric",
+    "fairy",
+    "fighting",
+    "fire",
+    "flying",
+    "ghost",
+    "grass",
+    "ground",
+    "ice",
+    "normal",
+    "plant",
+    "poison",
+    "psychic",
+    "rock",
+    "steel",
+    "water",
   ];
 
   return (
@@ -74,11 +74,15 @@ const SearchPage = ({ onHandleSearchByType }) => {
             })}
           </article>
           <article className={styles.tooltip_article}>
-            {errorHandler && <span className={styles.tooltip}>Please choose a type</span>}
-            <Link to={`${types.length > 0 ? '/' : '#'}`}>
+            {errorHandler && (
+              <span className={styles.tooltip}>Please choose a type</span>
+            )}
+            <Link to={`${types.length > 0 ? "/" : "#"}`}>
               <button
                 onClick={() =>
-                  types.length > 0 ? onHandleSearchByType(types, checked) : handleSetErrorHandler()
+                  types.length > 0
+                    ? onHandleSearchByType(types, checked)
+                    : handleSetErrorHandler()
                 }
                 className={styles.search_button}
               >
