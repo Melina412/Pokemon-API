@@ -1,7 +1,7 @@
 // Styling
 import style from "./Detailpage.css";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FetchContext, ThemeContext } from "../Context/context";
 import { useParams, Link } from "react-router-dom";
 import TypeButtons from "../components/searchpage/TypeButtons";
@@ -9,6 +9,7 @@ import TypeButtons from "../components/searchpage/TypeButtons";
 export default function DetailPage() {
   const { pokemonDataArray } = useContext(FetchContext);
   const { theme } = useContext(ThemeContext);
+
   //- useParams
   const idParams = useParams();
 
