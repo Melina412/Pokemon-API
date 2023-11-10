@@ -72,20 +72,25 @@ const PokemonList = ({ filteredPokemonList, setFilteredPokemon }) => {
         )}
       </section>
       {validateLoadMore && (
-        <button
-          onClick={handleMorePokeMons}
-          style={{
-            padding: '10px',
-            cursor: 'pointer',
-            backgroundColor: '#ffcb05',
-            color: '#2c72b8',
-            fontWeight: '800',
-            width: '100%',
-            marginBottom: '10px',
-          }}
-        >
-          LOAD MORE
-        </button>
+        <>
+          <button
+            onClick={handleMorePokeMons}
+            style={{
+              padding: '10px',
+              cursor: 'pointer',
+              backgroundColor: '#ffcb05',
+              color: '#2c72b8',
+              fontWeight: '800',
+              width: '100%',
+              marginBottom: '10px',
+            }}
+          >
+            LOAD MORE
+          </button>
+          <a style={{ position: 'fixed', bottom: '5%', right: '35%' }} href="#top">
+            TO TOP
+          </a>
+        </>
       )}
     </>
   );

@@ -57,7 +57,7 @@ function App() {
   };
 
   return (
-    <section className={`wrap ${theme ? 'dark' : 'light'}`}>
+    <section className={`wrap ${theme ? 'dark' : 'light'}`} id="top">
       <LoadingContext.Provider value={{ setLoading }}>
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <FetchContext.Provider
