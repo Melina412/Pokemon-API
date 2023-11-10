@@ -5,12 +5,6 @@ import { FetchContext } from '../Context/context';
 import PokemonDetails from './PokemonDetails';
 import styles from './PokemonList.module.css';
 
-// todo : beim reload wird der fetch erneut ausgeführt und die daten sind dann mehrfach im pokemonDataArray
-// todo : wie viele pokemon wollen wir in der Liste anzeigen?
-// todo : ggf. button für das laden weiterer pokemon?
-// todo : style
-// todo : pokemon müssen noch nach id sortiert werden
-
 const pokemonPerRow = 20;
 
 const PokemonList = ({ filteredPokemonList, setFilteredPokemon }) => {

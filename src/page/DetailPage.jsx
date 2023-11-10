@@ -1,5 +1,5 @@
 // Styling
-import style from './Detailpage.module.css';
+import style from "./Detailpage.css";
 
 import { useContext } from 'react';
 import { FetchContext } from '../Context/context';
@@ -18,12 +18,12 @@ export default function DetailPage() {
     });
 
   return (
-    <section className={`${style.page}`}>
-      <img className={`${style.logo}`} src="../../pokemon-img.png" alt="Logo" />
+    <section className="detail-page">
+      <img className="pokemonlogo" src="../../pokemon-img.png" alt="Logo" />
       <Link to={`/`}>← show all</Link>
-      <div className={`${style.card}`}>
+      <div className={`${theme ? "darkcard" : "card"}`}>
         <img
-          className={`${style.pokemon}`}
+          className="super-pokemon"
           src={detailPokemon[0].sprites.other.home.front_default}
           alt="Pokemon"
         />
@@ -31,11 +31,9 @@ export default function DetailPage() {
       <h1>
         #{detailPokemon[0].id.toString().padStart(3, '0')} {detailPokemon[0].name}
       </h1>
-
       {detailPokemon[0].types.map((type) => {
         return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;
       })}
-
       <h3>Attacken:</h3>
       <p>{detailPokemon[0].moves[0].move.name}</p>
       <p>{detailPokemon[0].moves[1].move.name}</p>
