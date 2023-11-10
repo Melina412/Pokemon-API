@@ -9,7 +9,7 @@ import SearchPageHeader from '../components/searchpage/SearchPageHeader';
 
 const errorTimeLength = 6000;
 
-const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
+const SearchPage = ({ onHandleSearchByType }) => {
   const [types, setTypes] = useState([]);
   const [errorHandler, setErrorHandler] = useState(false);
   const [checked, setChecked] = useState(false);
@@ -54,11 +54,7 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
   ];
 
   return (
-    <div
-      className={`${styles.body_section} ${
-        !isDarkMode ? styles.light_body_bg : styles.dark_body_bg
-      }`}
-    >
+    <div className={styles.body_section}>
       <SearchPageHeader />
       <main className={styles.main}>
         <div className={styles.type}>
@@ -89,10 +85,12 @@ const SearchPage = ({ isDarkMode, onHandleSearchByType }) => {
                 SEARCH
               </button>
             </Link>
-            <input type="checkbox" id="check" className={styles.checkbox} />
-            <label htmlFor="check" onClick={() => setChecked(!checked)}>
-              find only Pokemons with all Types
-            </label>
+            <div className={styles.checkbox_div}>
+              <input type="checkbox" id="check" className={styles.checkbox} />
+              <label htmlFor="check" onClick={() => setChecked(!checked)}>
+                find only Pokemons with all Types
+              </label>
+            </div>
           </article>
         </section>
       </main>

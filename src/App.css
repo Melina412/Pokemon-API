@@ -28,7 +28,7 @@
   --galar: #8b54ff;
   --cardsLightMode: #ffe1c6;
   --bgLightMode: #ff0000;
-  --bgDarkmode: #000000;
+  --bgDarkmode: #252525;
   --cardsDarkMode: #bfdfff;
   --Cards-Light-Mode: linear-gradient(52deg, #ffe1c6 4.87%, #ffcb05 94.37%);
   --Cards-Dark-Mode: linear-gradient(52deg, #bfdfff 4.87%, #001224 94.37%);
@@ -36,11 +36,15 @@
 
 @font-face {
   font-family: RobotoR;
-  src: url("./assets/fonts/Roboto-Regular.ttf");
+  src: url('./assets/fonts/Roboto-Regular.ttf');
 }
 @font-face {
   font-family: RobotoB;
-  src: url("./assets/fonts/Roboto-Black.ttf");
+  src: url('./assets/fonts/Roboto-Black.ttf');
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url('./assets/fonts/Roboto-Bold.ttf');
 }
 
 .logo {
@@ -50,7 +54,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  max-width: 375px;
+  max-width: 390px;
 }
 .dark {
   background-color: var(--bgDarkmode);

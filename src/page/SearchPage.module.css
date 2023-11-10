@@ -16,9 +16,9 @@
 }
 
 .type h2 {
-  font-family: RobotoB, Arial, Helvetica, sans-serif;
+  font-family: RobotoBold, Arial, Helvetica, sans-serif;
   font-size: 60px;
-  font-weight: 800;
+  font-weight: bold;
   color: #ffcb05;
   -webkit-text-stroke: 5px #2c72b8;
 }
@@ -45,13 +45,13 @@
   opacity: 0.75;
 }
 
-.light_body_bg {
+/* .light_body_bg {
   background-color: #ccdadd;
 }
 
 .dark_body_bg {
   background-color: #000;
-}
+} */
 
 .buttons {
   display: grid;
@@ -79,6 +79,48 @@
   font-size: 20px;
   font-weight: 800;
   animation: error-tool-tip 0.25s linear 1;
+}
+
+.checkbox_div {
+  display: flex;
+  align-items: center;
+  margin: 25px auto 40px auto;
+  justify-content: center;
+}
+
+.checkbox_div label {
+  font-size: 18px;
+  color: #2c72b8;
+  font-weight: 800;
+  line-height: 30px;
+}
+
+.checkbox {
+  position: relative;
+  left: 15px;
+  top: -4px;
+  z-index: 0;
+  -webkit-appearance: none;
+}
+.checkbox + label {
+  position: absolute;
+}
+.checkbox + label::before {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  border: 2px solid #8cad2d;
+  background-color: #fff;
+  display: block;
+  content: '';
+  float: left;
+  margin-right: 5px;
+  z-index: 5;
+  position: relative;
+}
+.checkbox:checked + label::before {
+  box-shadow: inset 0px 0px 0px 3px #fff;
+  background-color: #8cad2d;
 }
 
 @keyframes error-tool-tip {
