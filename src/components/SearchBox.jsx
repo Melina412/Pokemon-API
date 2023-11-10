@@ -9,7 +9,7 @@ import mode from "../assets/images/mode.png";
 import style from "./SearchBox.module.css";
 import { Link } from "react-router-dom";
 
-let val = "";
+import { setInputVal, getInputVal } from "../utils/inputValue";
 
 const SearchBox = ({ setFilteredPokemon }) => {
   const { pokemonDataArray } = useContext(FetchContext);
@@ -17,7 +17,9 @@ const SearchBox = ({ setFilteredPokemon }) => {
   const { setTheme } = useContext(ThemeContext);
 
   const searchPokemonByInput = (input) => {
-    val = input;
+
+    setInputVal(input);
+
     if (input !== "") {
       const filteredResult = pokemonDataArray?.filter((item) =>
         item.name.startsWith(input.toLowerCase())
@@ -48,10 +50,16 @@ const SearchBox = ({ setFilteredPokemon }) => {
         onChange={(e) => {
           searchPokemonByInput(e.target.value);
         }}
-        value={val}
-        placeholder="search Pokemon"
+        value={getInputVal()}
+        className={style.input}
+        placeholder="Search Pokemon"
       />
-      <img src={mode} alt="Darkmode" onClick={toggleTheme} />
+      <img
+        src={mode}
+        alt="Darkmode"
+        onClick={toggleTheme}
+        style={{ cursor: "pointer" }}
+      />
     </section>
   );
 };

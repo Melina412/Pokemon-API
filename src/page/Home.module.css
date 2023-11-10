@@ -6,10 +6,11 @@
   flex-direction: column;
   border-radius: 15px;
 }
-.img {
-  margin: 20px auto;
-  width: 60%;
-  display: block;
+
+.logo {
+  margin: 25px auto;
+  width: 225px;
+
 }
 .header {
   display: flex;
