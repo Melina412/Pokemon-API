@@ -87,7 +87,18 @@ const PokemonList = ({ filteredPokemonList, setFilteredPokemon }) => {
           >
             LOAD MORE
           </button>
-          <a style={{ position: 'fixed', bottom: '5%', right: '35%' }} href="#top">
+          <a
+            style={{
+              position: 'fixed',
+              bottom: '5%',
+              right: '35%',
+              background: 'rgba(0,0,0, 0.75)',
+              color: 'white',
+              padding: '5px',
+              textDecoration: 'none',
+            }}
+            href="#top"
+          >
             TO TOP
           </a>
         </>
