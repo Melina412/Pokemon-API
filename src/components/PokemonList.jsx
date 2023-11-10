@@ -51,7 +51,9 @@ const PokemonList = ({ filteredPokemonList, setFilteredPokemon }) => {
                 gap: "20px",
               }}
             >
-              <p style={{ textAlign: "center", width: "100%" }}>
+              <p
+                style={{ textAlign: "center", width: "100%", color: "#2c72b8" }}
+              >
                 No Pokemon found
               </p>
               <button
@@ -83,19 +85,37 @@ const PokemonList = ({ filteredPokemonList, setFilteredPokemon }) => {
         )}
       </section>
       {validateLoadMore && (
-        <button
-          onClick={handleMorePokeMons}
-          style={{
-            padding: "10px",
-            cursor: "pointer",
-            backgroundColor: "#ffcb05",
-            color: "#2c72b8",
-            fontWeight: "800",
-            width: "100%",
-          }}
-        >
-          LOAD MORE
-        </button>
+        <>
+          <button
+          className={`${styles.loadmore}`}
+            onClick={handleMorePokeMons}
+            style={{
+              padding: '10px',
+              cursor: 'pointer',
+              backgroundColor: '#ffcb05',
+              color: '#2c72b8',
+              fontWeight: '800',
+              width: '100%',
+              marginBottom: '10px',
+            }}
+          >
+            LOAD MORE
+          </button>
+          <a
+            style={{
+              position: 'fixed',
+              bottom: '5%',
+              right: '35%',
+              background: 'rgba(50,50,50, 0.75)',
+              color: 'white',
+              padding: '5px',
+              textDecoration: 'none',
+            }}
+            href="#top"
+          >
+            TO TOP
+          </a>
+        </>
       )}
     </>
   );

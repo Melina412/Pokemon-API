@@ -1,7 +1,7 @@
 // Styling
-import style from "./Detailpage.css";
+import './Detailpage.css';
 
-import { useContext } from "react";
+import { useContext} from "react";
 import { FetchContext, ThemeContext } from "../Context/context";
 import { useParams, Link } from "react-router-dom";
 import TypeButtons from "../components/searchpage/TypeButtons";
@@ -9,6 +9,7 @@ import TypeButtons from "../components/searchpage/TypeButtons";
 export default function DetailPage() {
   const { pokemonDataArray } = useContext(FetchContext);
   const { theme } = useContext(ThemeContext);
+
   //- useParams
   const idParams = useParams();
 
@@ -22,10 +23,14 @@ export default function DetailPage() {
     <section className="detail-page">
       <img className="pokemonlogo" src="../../pokemon-img.png" alt="Logo" />
       <Link to={`/`}>← show all</Link>
-      <div className={`${theme ? "darkcard" : "card"}`}>
+      <div className={`${theme ? 'darkcard' : 'card'}`}>
         <img
           className="super-pokemon"
-          src={detailPokemon[0].sprites.other.home.front_default}
+          src={
+            detailPokemon[0].sprites.other.home.front_default
+              ? detailPokemon[0].sprites.other.home.front_default
+              : detailPokemon[0].sprites.other["official-artwork"].front_default
+          }
           alt="Pokemon"
         />
       </div>
@@ -38,9 +43,9 @@ export default function DetailPage() {
         return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;
       })}
       <h3>Attacken:</h3>
-      <p>{detailPokemon[0].moves[0].move.name}</p>
-      <p>{detailPokemon[0].moves[1].move.name}</p>
-      <p>{detailPokemon[0].moves[3].move.name}</p>
+      {detailPokemon[0].moves.slice(0, 5).map((attack) => {
+        return <p key={crypto.randomUUID()}>{attack.move.name}</p>;
+      })}
     </section>
   );
 }

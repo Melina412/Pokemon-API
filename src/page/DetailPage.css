@@ -1,5 +1,5 @@
 .detail-page {
-  height: 100vh;
+  min-height: 100vh;
   font-family: RobotoR;
   font-size: 62.5%;
   text-align: center;
@@ -28,7 +28,6 @@
   margin: 100px auto 25px auto;
   background-image: linear-gradient(to bottom left, #ffcb05, #ffe1c6);
   height: 20vh;
-  position: relative;
   border-radius: 10px;
 }
 
@@ -38,16 +37,13 @@
   display: block;
   margin: 100px auto 25px auto;
   height: 20vh;
-  position: relative;
   border-radius: 10px;
   background-image: linear-gradient(to bottom left, #252525, #bfdfff);
 }
 
 .super-pokemon {
-  width: 90%;
-  bottom: 5px;
-  left: 5%;
-  position: absolute;
+  width: 250px;
+  margin-top: -30%;
 }
 
 button {
@@ -58,7 +54,7 @@ button {
   border: none;
   margin: 0 5px 25px 5px;
   padding: 10px 35px;
-  width: 40%;
+  width: 47%;
 }
 
 .detail-page p {
