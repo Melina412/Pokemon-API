@@ -35,7 +35,9 @@ export default function DetailPage() {
         />
       </div>
       <h1>
-        #{detailPokemon[0].id.toString().padStart(3, '0')} {detailPokemon[0].name}
+        #{detailPokemon[0].id.toString().padStart(3, "0")}{" "}
+        {detailPokemon[0].name.charAt(0).toUpperCase() +
+          detailPokemon[0].name.slice(1)}
       </h1>
       {detailPokemon[0].types.map((type) => {
         return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;

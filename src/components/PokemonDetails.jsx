@@ -22,7 +22,8 @@ const PokemonDetails = (props) => {
               src={
                 props.pokemon.sprites.other.home.front_default
                   ? props.pokemon.sprites.other.home.front_default
-                  : props.pokemon.sprites.front_default
+                  : props.pokemon.sprites.other["official-artwork"]
+                      .front_default
               }
               alt={props.pokemon.name + " image"}
             />
