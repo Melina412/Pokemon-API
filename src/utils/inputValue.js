@@ -1,4 +1,5 @@
 let val = "";
+
 export const setInputVal = (_val) => {
   val = _val;
 };

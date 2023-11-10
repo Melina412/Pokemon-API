@@ -17,7 +17,6 @@ const SearchBox = ({ setFilteredPokemon }) => {
   const { setTheme } = useContext(ThemeContext);
 
   const searchPokemonByInput = (input) => {
-
     setInputVal(input);
 
     if (input !== "") {

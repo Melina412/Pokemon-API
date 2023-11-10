@@ -6,4 +6,5 @@
 
 html {
   font-family: RobotoR, Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }

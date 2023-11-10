@@ -1,7 +1,7 @@
 // Styling
-import style from "./Detailpage.css";
+import './Detailpage.css';
 
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { FetchContext, ThemeContext } from "../Context/context";
 import { useParams, Link } from "react-router-dom";
 import TypeButtons from "../components/searchpage/TypeButtons";
@@ -23,7 +23,7 @@ export default function DetailPage() {
     <section className="detail-page">
       <img className="pokemonlogo" src="../../pokemon-img.png" alt="Logo" />
       <Link to={`/`}>← show all</Link>
-      <div className={`${theme ? "darkcard" : "card"}`}>
+      <div className={`${theme ? 'darkcard' : 'card'}`}>
         <img
           className="super-pokemon"
           src={
@@ -35,8 +35,7 @@ export default function DetailPage() {
         />
       </div>
       <h1>
-        #{detailPokemon[0].id.toString().padStart(3, "0")}{" "}
-        {detailPokemon[0].name}
+        #{detailPokemon[0].id.toString().padStart(3, '0')} {detailPokemon[0].name}
       </h1>
       {detailPokemon[0].types.map((type) => {
         return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;

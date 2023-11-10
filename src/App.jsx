@@ -1,20 +1,22 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Import Page & Componets
-import Home from "./page/Home";
+import Home from './page/Home';
 
-import DetailPage from "./page/DetailPage";
-import SearchPage from "./page/SearchPage";
-import FetchData from "./components/FetchData";
+import DetailPage from './page/DetailPage';
+import SearchPage from './page/SearchPage';
+import FetchData from './components/FetchData';
 
-import { useCallback, useContext, useState } from "react";
-import "./App.css";
+
+import { useState } from 'react';
+import './App.css';
 // Import Context
-import { ThemeContext } from "./Context/context";
-import { FetchContext } from "./Context/context";
-import { LoadingContext } from "./Context/context";
-import Loading from "./page/Loading";
-import { setInputVal } from "./utils/inputValue";
+import { ThemeContext } from './Context/context';
+import { FetchContext } from './Context/context';
+import { LoadingContext } from './Context/context';
+import Loading from './page/Loading';
+
+import { setInputVal } from './utils/inputValue';
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -23,10 +25,10 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const handleSearchByType = (types, checked) => {
+
     setInputVal("");
     if (types && types.length > 0) {
       if (checked) {
-        // setFilteredPokemon(pokemonDataArray);
         let filteredResults = [...pokemonDataArray];
         types.forEach((typeName) => {
           filteredResults = [
@@ -48,9 +50,8 @@ function App() {
 
       const filteredResults = pokemonDataArray.filter(
         (element) =>
-          element.types.filter(
-            (e) => types.filter((type) => e.type.name.includes(type)).length > 0
-          ).length > 0
+          element.types.filter((e) => types.filter((type) => e.type.name.includes(type)).length > 0)
+            .length > 0
       );
       if (filteredResults.length < 1) {
         setFilteredPokemon([null]);
@@ -61,7 +62,7 @@ function App() {
   };
 
   return (
-    <section className={`wrap ${theme ? "dark" : "light"}`}>
+    <section className={`wrap ${theme ? 'dark' : 'light'}`} id="top">
       <LoadingContext.Provider value={{ setLoading }}>
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <FetchContext.Provider
@@ -89,9 +90,7 @@ function App() {
                   />
                   <Route
                     path="/search"
-                    element={
-                      <SearchPage onHandleSearchByType={handleSearchByType} />
-                    }
+                    element={<SearchPage onHandleSearchByType={handleSearchByType} />}
                   />
                 </Routes>
               ) : (
