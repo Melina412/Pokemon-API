@@ -19,7 +19,12 @@ const PokemonDetails = (props) => {
           <div className={`${styles.container}`}>
             <img
               className={`${styles.image}`}
-              src={props.pokemon.sprites.other.home.front_default}
+              src={
+                props.pokemon.sprites.other.home.front_default
+                  ? props.pokemon.sprites.other.home.front_default
+                  : props.pokemon.sprites.other["official-artwork"]
+                      .front_default
+              }
               alt={props.pokemon.name + " image"}
             />
           </div>
