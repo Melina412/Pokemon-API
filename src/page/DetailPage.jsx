@@ -26,7 +26,11 @@ export default function DetailPage() {
       <div className={`${theme ? "darkcard" : "card"}`}>
         <img
           className="super-pokemon"
-          src={detailPokemon[0].sprites.other.home.front_default}
+          src={
+            detailPokemon[0].sprites.other.home.front_default
+              ? detailPokemon[0].sprites.other.home.front_default
+              : detailPokemon[0].sprites.other["official-artwork"].front_default
+          }
           alt="Pokemon"
         />
       </div>
@@ -38,9 +42,9 @@ export default function DetailPage() {
         return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;
       })}
       <h3>Attacken:</h3>
-      <p>{detailPokemon[0].moves[0].move.name}</p>
-      <p>{detailPokemon[0].moves[1].move.name}</p>
-      <p>{detailPokemon[0].moves[3].move.name}</p>
+      {detailPokemon[0].moves.slice(0, 5).map((attack) => {
+        return <p key={crypto.randomUUID()}>{attack.move.name}</p>;
+      })}
     </section>
   );
 }

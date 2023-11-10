@@ -17,7 +17,9 @@ const SearchBox = ({ setFilteredPokemon }) => {
   const { setTheme } = useContext(ThemeContext);
 
   const searchPokemonByInput = (input) => {
+
     setInputVal(input);
+
     if (input !== "") {
       const filteredResult = pokemonDataArray?.filter((item) =>
         item.name.startsWith(input.toLowerCase())
