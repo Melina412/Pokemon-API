@@ -15,6 +15,8 @@ import { FetchContext } from './Context/context';
 import { LoadingContext } from './Context/context';
 import Loading from './page/Loading';
 
+import { setInputVal } from './utils/inputValue';
+
 function App() {
   const [theme, setTheme] = useState(false);
   const [pokemonDataArray, setPokemonDataArray] = useState([]);
@@ -22,6 +24,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const handleSearchByType = (types, checked) => {
+    setInputVal('');
     if (types && types.length > 0) {
       if (checked) {
         let filteredResults = [...pokemonDataArray];
