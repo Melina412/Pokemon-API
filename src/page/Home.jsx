@@ -16,7 +16,7 @@ const Home = ({ setFilteredPokemon, filteredPokemon }) => {
   return (
     <section className={style.container}>
       <header className="header">
-        <img src={pokemonLogo} alt="PokemonLogo" className="logo img" />
+        <img src={pokemonLogo} alt="PokemonLogo" className={style.img} />
         <SearchBox setFilteredPokemon={setFilteredPokemon} />
       </header>
       <main>
