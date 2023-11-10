@@ -1,0 +1,64 @@
+:root {
+  --plant: #70df00;
+  --fire: #ff9900;
+  --ice: #6ad2ff;
+  --fighting: #e40000;
+  --steel: #2a4950;
+  --rock: #e1b237;
+  --water: #00a0e4;
+  --ghost: #5a1e64;
+  --electric: #ffe600;
+  --dark: #1c1c1c;
+  --posion: #ab00ae;
+  --flyng: #ccdadd;
+  --psyvhic: #ff81f2;
+  --normal: #b3b3b3;
+  --ground: #965a00;
+  --fairy: #ffc2f9;
+  --dragon: #00458a;
+  --bug: #3bb900;
+  --grass: #57921c;
+  --kanto: #7dec0d;
+  --johto: #fff639;
+  --hoenn: #00dfd2;
+  --sinnoh: #c071ff;
+  --teselia: #5498ff;
+  --kalos: #ff549c;
+  --alola: #ff7d54;
+  --galar: #8b54ff;
+  --cardsLightMode: #ffe1c6;
+  --bgLightMode: #ff0000;
+  --bgDarkmode: #252525;
+  --cardsDarkMode: #bfdfff;
+  --Cards-Light-Mode: linear-gradient(52deg, #ffe1c6 4.87%, #ffcb05 94.37%);
+  --Cards-Dark-Mode: linear-gradient(52deg, #bfdfff 4.87%, #001224 94.37%);
+}
+
+@font-face {
+  font-family: RobotoR;
+  src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+@font-face {
+  font-family: RobotoB;
+  src: url('./assets/fonts/Roboto-Black.ttf');
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url('./assets/fonts/Roboto-Bold.ttf');
+}
+
+.logo {
+  width: 225px;
+}
+.wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 390px;
+}
+.dark {
+  background-color: var(--bgDarkmode);
+}
+.light {
+  background-color: var(--flyng);
+}

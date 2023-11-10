@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.logo {
+  margin: 25px auto;
+  width: 225px;
+
+}
+.header {
+  display: flex;
+  flex-direction: column;
+}

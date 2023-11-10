@@ -1,0 +1,79 @@
+.detail-page {
+  min-height: 100vh;
+  font-family: RobotoR;
+  font-size: 62.5%;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.pokemonlogo {
+  width: 60%;
+  display: block;
+  padding-top: 25px;
+  margin: 0 auto;
+}
+
+.detail-page h1 {
+  font-family: RobotoB;
+  color: #ffcb05;
+  -webkit-text-stroke: 3px #2c72b8;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+}
+
+.card {
+  width: 90%;
+  display: block;
+  margin: 100px auto 25px auto;
+  background-image: linear-gradient(to bottom left, #ffcb05, #ffe1c6);
+  height: 20vh;
+  border-radius: 10px;
+}
+
+/*- Card Background für Darkmode */
+.darkcard {
+  width: 90%;
+  display: block;
+  margin: 100px auto 25px auto;
+  height: 20vh;
+  border-radius: 10px;
+  background-image: linear-gradient(to bottom left, #252525, #bfdfff);
+}
+
+.super-pokemon {
+  width: 250px;
+  margin-top: -30%;
+}
+
+button {
+  border: none;
+}
+
+.detail-page button {
+  border: none;
+  margin: 0 5px 25px 5px;
+  padding: 10px 35px;
+  width: 47%;
+}
+
+.detail-page p {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.detail-page h3 {
+  color: #2c72b8;
+  font-size: 1.4rem;
+  font-family: RobotoB;
+  margin-bottom: 10px;
+}
+
+.detail-page a {
+  text-decoration: none;
+  color: #ffcb05;
+  -webkit-text-stroke: 1.5px #2c72b8;
+  font-size: 2rem;
+  display: block;
+  margin: 40px 0 110px 0;
+}

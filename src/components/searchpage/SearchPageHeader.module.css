@@ -1,0 +1,25 @@
+.header {
+  padding: 5vh 5vw;
+}
+
+.header div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 85px;
+}
+
+.header div img {
+  max-width: 100%;
+  max-height: 10vh;
+  margin: 0;
+}
+
+.header div svg {
+  width: 40px;
+  cursor: pointer;
+}
+
+.header div svg g path:hover {
+  fill: #6c7274;
+}
