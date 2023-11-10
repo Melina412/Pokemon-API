@@ -1,33 +1,21 @@
 // Styling
 import style from "./Detailpage.css";
 
-import FetchData from "../components/FetchData";
-import { useRef } from "react";
-import { useContext } from "react";
-import { FetchContext } from "../Context/context";
-import { useParams, Link } from "react-router-dom";
-import TypeButtons from "../components/searchpage/TypeButtons";
-import { ThemeContext } from "../Context/context";
+import { useContext } from 'react';
+import { FetchContext } from '../Context/context';
+import { useParams, Link } from 'react-router-dom';
+import TypeButtons from '../components/searchpage/TypeButtons';
 
-export default function DetailPage(props) {
-  const { theme } = useContext(ThemeContext);
-  console.log("Hallooooooooo" + theme);
-
-  const { pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray } =
-    useContext(FetchContext);
-  console.log(props.pokemon);
-  console.log(pokemonDataArray);
-
+export default function DetailPage() {
+  const { pokemonDataArray } = useContext(FetchContext);
   //- useParams
   const idParams = useParams();
 
-  const detailPokemon = pokemonDataArray.filter((elm) => {
-    return elm.id.toString() === idParams.id;
-  });
-
-  console.log(detailPokemon);
-
-  //------------
+  const detailPokemon =
+    pokemonDataArray &&
+    pokemonDataArray.filter((elm) => {
+      return elm.id.toString() === idParams.id;
+    });
 
   return (
     <section className="detail-page">
@@ -41,8 +29,7 @@ export default function DetailPage(props) {
         />
       </div>
       <h1>
-        #{detailPokemon[0].id.toString().padStart(3, "0")}{" "}
-        {detailPokemon[0].name}
+        #{detailPokemon[0].id.toString().padStart(3, '0')} {detailPokemon[0].name}
       </h1>
       {detailPokemon[0].types.map((type) => {
         return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;

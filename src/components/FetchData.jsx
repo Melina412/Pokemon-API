@@ -1,16 +1,18 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { FetchContext } from '../Context/context';
+import { useEffectOnce } from '../utils/useEffectOnce';
 const FetchData = () => {
-  const { pokemonList, setPokemonList, pokemonDataArray, setPokemonDataArray } =
-    useContext(FetchContext);
-  const fetchList = 'https://pokeapi.co/api/v2/pokemon/';
+  const { setPokemonDataArray } = useContext(FetchContext);
+  // const fetchList = 'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0';
+  const fetchList = 'https://pokeapi.co/api/v2/pokemon?limit=1292&offset=0';
 
-  useEffect(() => {
+  useEffectOnce(() => {
     // * zuerst die ganze liste mit den pokemon fetchen
+
     fetch(fetchList)
       .then((response) => response.json())
       .then((data) => {
-        const fetchedData = data.results.map((pokemon) => {
+        data.results.map((pokemon) => {
           // * dann nochmal für jedes pokemon die jeweilige detail-api fetchen & daten in array mappen
           return fetch(pokemon.url)
             .then((response) => response.json())
@@ -18,14 +20,10 @@ const FetchData = () => {
               setPokemonDataArray((prev) => [...prev, pokemonData]);
             });
         });
-
-        // * warten bis alle daten da sind und dann anzeigen
-        Promise.all(fetchedData).then(() => {
-          setPokemonList(data);
-        });
       })
 
       .catch((error) => console.error('Fehler beim Abrufen der Pokemon-Liste:' + error));
   }, []);
 };
+
 export default FetchData;

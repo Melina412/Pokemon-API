@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
+
 import { useContext } from 'react';
-import { FetchContext } from '../Context/context';
 import { ThemeContext } from '../Context/context';
 import style from './Home.module.css';
 
@@ -10,7 +11,6 @@ import pokemonLogo from '../assets/images/pokemon-logo.png';
 import SearchBox from '../components/SearchBox';
 
 const Home = ({ setFilteredPokemon, filteredPokemon }) => {
-  const { pokemonList } = useContext(FetchContext);
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -20,10 +20,18 @@ const Home = ({ setFilteredPokemon, filteredPokemon }) => {
         <SearchBox setFilteredPokemon={setFilteredPokemon} />
       </header>
       <main>
-        <PokemonList filteredPokemonList={filteredPokemon} />
+        <PokemonList
+          filteredPokemonList={filteredPokemon}
+          setFilteredPokemon={setFilteredPokemon}
+        />
       </main>
     </section>
   );
+};
+
+Home.propTypes = {
+  setFilteredPokemon: PropTypes.func,
+  filteredPokemon: PropTypes.array,
 };
 
 export default Home;
