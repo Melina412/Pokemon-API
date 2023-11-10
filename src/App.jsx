@@ -21,10 +21,18 @@ function App() {
   const [filteredPokemon, setFilteredPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const handleSearchByType = (types, checked) => {
+const handleSearchByType = (types, checked) => {
     if (types && types.length > 0) {
       if (checked) {
+        // setFilteredPokemon(pokemonDataArray);
         let filteredResults = [...pokemonDataArray];
+        types.forEach((typeName) => {
+          filteredResults = [
+            ...filteredResults.filter((element) =>
+              element.types.map((type) => type.type.name).includes(typeName)
+            ),
+          ];
+        });
 
         if (filteredResults.length < 1) {
           setFilteredPokemon([null]);
@@ -61,7 +69,7 @@ function App() {
         >
           <BrowserRouter>
             <FetchData />
-            {pokemonDataArray ? (
+            {loading && pokemonDataArray ? (
               <Routes>
                 <Route
                   path="/"
