@@ -45,13 +45,13 @@
   opacity: 0.75;
 }
 
-.light_body_bg {
+/* .light_body_bg {
   background-color: #ccdadd;
 }
 
 .dark_body_bg {
   background-color: #000;
-}
+} */
 
 .buttons {
   display: grid;

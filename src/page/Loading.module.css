@@ -1,0 +1,31 @@
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.headline {
+  color: #ffcb05;
+  -webkit-text-stroke: 1.5px #2c72b8;
+  position: fixed;
+  bottom: 100px;
+  left: 30%;
+  font-family: RobotoB;
+}
+
+.ditto {
+  width: 80%;
+  display: block;
+  margin: -50px auto 0 auto;
+  animation: fly 3s infinite;
+}
+
+@keyframes fly {
+  0%,
+  100% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
