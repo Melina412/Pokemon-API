@@ -1,13 +1,14 @@
 // Styling
 import style from "./Detailpage.css";
 
-import { useContext } from 'react';
-import { FetchContext } from '../Context/context';
-import { useParams, Link } from 'react-router-dom';
-import TypeButtons from '../components/searchpage/TypeButtons';
+import { useContext } from "react";
+import { FetchContext, ThemeContext } from "../Context/context";
+import { useParams, Link } from "react-router-dom";
+import TypeButtons from "../components/searchpage/TypeButtons";
 
 export default function DetailPage() {
   const { pokemonDataArray } = useContext(FetchContext);
+  const { theme } = useContext(ThemeContext);
   //- useParams
   const idParams = useParams();
 
@@ -29,7 +30,8 @@ export default function DetailPage() {
         />
       </div>
       <h1>
-        #{detailPokemon[0].id.toString().padStart(3, '0')} {detailPokemon[0].name}
+        #{detailPokemon[0].id.toString().padStart(3, "0")}{" "}
+        {detailPokemon[0].name}
       </h1>
       {detailPokemon[0].types.map((type) => {
         return <TypeButtons key={crypto.randomUUID()} type={type.type.name} />;
