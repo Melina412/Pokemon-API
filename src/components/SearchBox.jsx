@@ -49,8 +49,10 @@ const SearchBox = ({ setFilteredPokemon }) => {
           searchPokemonByInput(e.target.value);
         }}
         value={val}
+        className={style.input}
+        placeholder="Search Pokemon"
       />
-      <img src={mode} alt="Darkmode" onClick={toggleTheme} />
+      <img src={mode} alt="Darkmode" onClick={toggleTheme} style={{ cursor: 'pointer' }} />
     </section>
   );
 };

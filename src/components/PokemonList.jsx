@@ -44,7 +44,9 @@ const PokemonList = ({ filteredPokemonList, setFilteredPokemon }) => {
                 gap: '20px',
               }}
             >
-              <p style={{ textAlign: 'center', width: '100%' }}>No Pokemon found</p>
+              <p style={{ textAlign: 'center', width: '100%', color: '#2c72b8' }}>
+                No Pokemon found
+              </p>
               <button
                 onClick={() => setFilteredPokemon([])}
                 style={{
@@ -79,6 +81,7 @@ const PokemonList = ({ filteredPokemonList, setFilteredPokemon }) => {
             color: '#2c72b8',
             fontWeight: '800',
             width: '100%',
+            marginBottom: '10px',
           }}
         >
           LOAD MORE

@@ -7,7 +7,7 @@ import TypeButtons from '../components/searchpage/TypeButtons';
 import { useState } from 'react';
 import SearchPageHeader from '../components/searchpage/SearchPageHeader';
 
-const errorTimeLength = 6000;
+const errorTimeLength = 5000;
 
 const SearchPage = ({ onHandleSearchByType }) => {
   const [types, setTypes] = useState([]);
