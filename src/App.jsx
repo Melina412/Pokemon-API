@@ -6,7 +6,6 @@ import Home from './page/Home';
 import DetailPage from './page/DetailPage';
 import SearchPage from './page/SearchPage';
 import FetchData from './components/FetchData';
-import PokemonList from './components/PokemonList';
 
 import { useState } from 'react';
 import './App.css';
@@ -16,48 +15,57 @@ import { FetchContext } from './Context/context';
 
 function App() {
   const [theme, setTheme] = useState(false);
-  const [pokemonList, setPokemonList] = useState();
   const [pokemonDataArray, setPokemonDataArray] = useState([]);
   const [filteredPokemon, setFilteredPokemon] = useState([]);
 
   const handleSearchByType = (types, checked) => {
-      
-      if (types && types.length > 0) {
-           if (checked) {
-             setFilteredPokemon(pokemonDataArray);
+    if (types && types.length > 0) {
+      if (checked) {
+        // setFilteredPokemon(pokemonDataArray);
+        let filteredResults = [...pokemonDataArray];
         types.forEach((typeName) => {
-          setFilteredPokemon((prev) => [
-            ...prev.filter((element) =>
+          filteredResults = [
+            ...filteredResults.filter((element) =>
               element.types.map((type) => type.type.name).includes(typeName)
             ),
-          ]);
+          ];
         });
-               return;
+
+        if (filteredResults.length < 1) {
+          setFilteredPokemon([null]);
+          return;
+        }
+
+        setFilteredPokemon(filteredResults);
+
+        return;
       }
-         const filteredResults = pokemonDataArray.filter(
+
+      const filteredResults = pokemonDataArray.filter(
         (element) =>
-          element.types.filter(
-            (e) => types.filter((type) => e.type.name.includes(type)).length > 0
-          ).length > 0
+          element.types.filter((e) => types.filter((type) => e.type.name.includes(type)).length > 0)
+            .length > 0
       );
+      if (filteredResults.length < 1) {
+        setFilteredPokemon([null]);
+        return;
+      }
       setFilteredPokemon(filteredResults);
     }
   };
 
   return (
-    <section className={`wrap ${theme ? "dark" : "light"}`}>
+    <section className={`wrap ${theme ? 'dark' : 'light'}`}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <FetchContext.Provider
           value={{
-            pokemonList,
-            setPokemonList,
             pokemonDataArray,
             setPokemonDataArray,
           }}
         >
           <BrowserRouter>
             <FetchData />
-            {pokemonList ? (
+            {pokemonDataArray ? (
               <Routes>
                 <Route
                   path="/"
@@ -68,16 +76,17 @@ function App() {
                     />
                   }
                 />
-                <Route path="/details/:id" element={<DetailPage />} />
+                <Route
+                  path="/details/:id"
+                  element={<DetailPage pokemonDataArray={pokemonDataArray} />}
+                />
                 <Route
                   path="/search"
-                  element={
-                    <SearchPage onHandleSearchByType={handleSearchByType} />
-                  }
+                  element={<SearchPage onHandleSearchByType={handleSearchByType} />}
                 />
               </Routes>
             ) : (
-              <p>Loding...</p>
+              <p>Loading...</p>
             )}
           </BrowserRouter>
         </FetchContext.Provider>
