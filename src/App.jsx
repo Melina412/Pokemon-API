@@ -21,10 +21,18 @@ function App() {
   const [filteredPokemon, setFilteredPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const handleSearchByType = (types, checked) => {
+const handleSearchByType = (types, checked) => {
     if (types && types.length > 0) {
       if (checked) {
+        // setFilteredPokemon(pokemonDataArray);
         let filteredResults = [...pokemonDataArray];
+        types.forEach((typeName) => {
+          filteredResults = [
+            ...filteredResults.filter((element) =>
+              element.types.map((type) => type.type.name).includes(typeName)
+            ),
+          ];
+        });
 
         if (filteredResults.length < 1) {
           setFilteredPokemon([null]);
@@ -53,44 +61,42 @@ function App() {
   return (
     <section className={`wrap ${theme ? "dark" : "light"}`}>
       <LoadingContext.Provider value={{ setLoading }}>
-        <ThemeContext.Provider value={{ theme, setTheme }}>
-          <FetchContext.Provider
-            value={{
-              pokemonDataArray,
-              setPokemonDataArray,
-            }}
-          >
-            <BrowserRouter>
-              <FetchData />
-              {loading ? (
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <Home
-                        setFilteredPokemon={setFilteredPokemon}
-                        filteredPokemon={filteredPokemon}
-                      />
-                    }
-                  />
-                  <Route
-                    path="/details/:id"
-                    element={<DetailPage pokemonDataArray={pokemonDataArray} />}
-                  />
-                  <Route
-                    path="/search"
-                    element={
-                      <SearchPage onHandleSearchByType={handleSearchByType} />
-                    }
-                  />
-                </Routes>
-              ) : (
-                <Loading />
-              )}
-            </BrowserRouter>
-          </FetchContext.Provider>
-        </ThemeContext.Provider>
-      </LoadingContext.Provider>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <FetchContext.Provider
+          value={{
+            pokemonDataArray,
+            setPokemonDataArray,
+          }}
+        >
+          <BrowserRouter>
+            <FetchData />
+            {loading && pokemonDataArray ? (
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Home
+                      setFilteredPokemon={setFilteredPokemon}
+                      filteredPokemon={filteredPokemon}
+                    />
+                  }
+                />
+                <Route
+                  path="/details/:id"
+                  element={<DetailPage pokemonDataArray={pokemonDataArray} />}
+                />
+                <Route
+                  path="/search"
+                  element={<SearchPage onHandleSearchByType={handleSearchByType} />}
+                />
+              </Routes>
+            ) : (
+               <Loading />
+            )}
+          </BrowserRouter>
+        </FetchContext.Provider>
+      </ThemeContext.Provider>
+     </LoadingContext.Provider>
     </section>
   );
 }
